@@ -119,7 +119,7 @@ namespace KumattaAppServer.Hubs
             }
 
             // サーバーへ接続
-            channel = GrpcChannelx.ForAddress("http://192.168.179.4:5001");
+            channel = GrpcChannelx.ForAddress("http://localhost:5001");
             streamingClient = await StreamingHubClient.ConnectAsync<IChatAppHub, IChatAppHubReceiver>(channel, this, cancellationToken: shutdownCancellation.Token);
 
             await streamingClient.JoinAsync(roomName, userName);
